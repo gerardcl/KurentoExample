@@ -12,7 +12,7 @@ Running this tutorial
 
 In order to run this tutorial, please read the following instructions.
 
-git clone https://github.com/srigaurav1986/KurentoExample.git   
+git clone https://github.com/gerardcl/KurentoExample.git   
 cd KurentoExample   
 npm install  
 npm start  
@@ -22,7 +22,7 @@ If you have problems installing any of the dependencies, please remove them and 
 rm -r node_modules  
 npm cache clean  
 
-Access the application connecting to the URL http://localhost:8080/ through a WebRTC capable browser (Chrome, Firefox).
+Access the application connecting to the URL https://localhost:8080/ through a WebRTC capable browser (Chrome, Firefox).
 
 Note
 
