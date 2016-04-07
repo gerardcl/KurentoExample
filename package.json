@@ -3,15 +3,36 @@
   "version": "6.1.1-dev",
   "private": true,
   "scripts": {
-    "postinstall": "cd static && bower install"
+    "postinstall": "cd static && bower install",
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "~4.12.4",
     "minimist": "^1.1.1",
     "ws": "~0.7.2",
-    "kurento-client": "Kurento/kurento-client-js"
+    "kurento-client": "Kurento/kurento-client-js",
+    "fs": "0.0.2"
   },
   "devDependencies": {
     "bower": "^1.4.1"
+  },
+  "description": "[![][KurentoImage]][Kurento]",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gerardcl/KurentoExample.git "
+  },
+  "keywords": [
+    "kurento",
+    "media",
+    "server",
+    "composite",
+    "mixer",
+    "webrtc"
+  ],
+  "author": "kurento - forked by GerardCL",
+  "license": "LGPL",
+  "bugs": {
+    "url": "https://github.com/gerardcl/KurentoExample.git /issues"
   }
 }

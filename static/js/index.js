@@ -1,4 +1,4 @@
-var ws = new WebSocket('ws://' + location.host + '/call');
+var ws = new WebSocket('wss://' + location.host + '/call');
 var video;
 var webRtcPeer;
 var state = null;

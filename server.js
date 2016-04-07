@@ -2,7 +2,9 @@ var kurento = require('kurento-client');
 var express = require('express');
 var app = express();
 var path = require('path');
-var wsm = require('ws');
+var ws = require('ws');
+var fs    = require('fs');
+var https = require('https');
 
 app.set('port', process.env.PORT || 8080);
 
@@ -13,6 +15,12 @@ app.set('port', process.env.PORT || 8080);
 // Modify here the kurento media server address
 const ws_uri = "ws://localhost:8888/kurento";
 //const ws_uri = "ws://192.168.15.45:8888/kurento";
+
+var options =
+{
+  key:  fs.readFileSync('keys/server.key'),
+  cert: fs.readFileSync('keys/server.crt')
+};
 
 /*
  * Definition of global variables.
@@ -35,18 +43,15 @@ function nextUniqueId() {
  */
 
 var port = app.get('port');
-var server = app.listen(port, function()
+var server = https.createServer(options, app).listen(port, function()
 {
     console.log('Mixing stream server started');
 });
 
-var WebSocketServer = wsm.Server;
-var wss = new WebSocketServer(
-    {
-        server : server,
-        path : '/call'
-    }
-);
+var wss = new ws.Server({
+    server : server,
+    path : '/call'
+});
 
 /*
  * Management of WebSocket messages
